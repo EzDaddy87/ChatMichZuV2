@@ -18,7 +18,7 @@ export class ChatWindowComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    setInterval(this.getMessages, 1000);
+    setInterval(()=>{this.getMessages()}, 1000);
     console.log("this.ngOnInit()");
   }
 
@@ -32,6 +32,6 @@ export class ChatWindowComponent implements OnInit {
 
   getMessages(){
     console.log("get.messages()");
-    this.httpClient.get("https://localhost:44331/ChatMessage").subscribe(messages => this.messages = messages)
+    this.httpClient.get("https://localhost:44331/ChatMessage").subscribe(messages => this.messages= messages);
   }
 }
