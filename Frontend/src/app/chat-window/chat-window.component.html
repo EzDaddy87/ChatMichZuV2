@@ -1,4 +1,11 @@
 <h1>ChatMichZu Window</h1>
 
+<ng-container>
+  <ul>
+    <li *ngFor="let message of messages">
+      ({{message.date}}){{message.sender}}:{{message.text}}
+    </li>
+  </ul>
+</ng-container>
 <input type="text" name="" id="" placeholder="Hier Nachricht" [(ngModel)]="message">
 <button (click)="send()">absenden</button>
