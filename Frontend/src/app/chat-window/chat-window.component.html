@@ -2,7 +2,7 @@
 
 <ng-container>
   <ul>
-    <li *ngFor="let message of messages">
+    <li *ngFor="let message of messages$ | async">
       ({{message.date}}) {{message.sender}}: {{message.text}}
     </li>
   </ul>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import {waitForAsync} from "@angular/core/testing";
-import {interval} from "rxjs";
+import {interval, Observable} from "rxjs";
+import {MessagesService} from "../messages.service";
 
 @Component({
   selector: 'app-chat-window',
@@ -11,7 +12,7 @@ import {interval} from "rxjs";
 export class ChatWindowComponent implements OnInit {
 
   message?: string;
-  messages?: any;
+  messages$!: Observable<any[]>;
 
   constructor(
     private httpClient: HttpClient,
@@ -28,10 +29,5 @@ export class ChatWindowComponent implements OnInit {
                                                                             "sender": "User" }).subscribe();
     console.log(this.message);
     this.message=undefined;
-  }
-
-  getMessages(){
-    console.log("get.messages()");
-    this.httpClient.get("https://localhost:44331/ChatMessage").subscribe(messages => this.messages= messages);
   }
 }
