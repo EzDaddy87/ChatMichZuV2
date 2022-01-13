@@ -16,6 +16,7 @@ export class ChatWindowComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
+    private messageService: MessagesService,
   ) { }
 
   ngOnInit(): void {
