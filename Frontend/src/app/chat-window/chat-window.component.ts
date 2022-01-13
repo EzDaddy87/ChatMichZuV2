@@ -25,9 +25,13 @@ export class ChatWindowComponent implements OnInit {
   }
 
   send(){
-    this.httpClient.post("https://localhost:44331/ChatMessage", { "date": new Date().toISOString(),
-                                                                            "text": this.message,
-                                                                            "sender": "User" }).subscribe();
+    this.httpClient.post("https://localhost:44331/ChatMessage",
+      {
+      "date": new Date().toISOString(),
+      "text": this.message,
+      "sender": "User"
+      }).subscribe();
+
     console.log(this.message);
     this.message=undefined;
   }
