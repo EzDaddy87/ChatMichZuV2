@@ -19,9 +19,8 @@ export class ChatWindowComponent implements OnInit {
     private messageService: MessagesService,
   ) { }
 
-  ngOnInit(): void {
-    setInterval(()=>{this.getMessages()}, 1000);
-    console.log("this.ngOnInit()");
+  ngOnInit() {
+    this.messages$ = this.messageService.getAllMessages$();
   }
 
   send(){
